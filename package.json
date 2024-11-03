@@ -1,0 +1,33 @@
+{
+  "name": "game-xo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open --host",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/google-one-tap": "^1.2.6",
+    "@vue/tsconfig": "^0.5.1",
+    "axios": "^1.7.7",
+    "firebase": "^10.14.0",
+    "sass": "^1.80.3",
+    "sass-loader": "^16.0.2",
+    "vee-validate": "^4.13.2",
+    "vue": "^3.5.10",
+    "vue-axios": "^3.5.2",
+    "vue-router": "^4.4.5",
+    "vue3-google-login": "^2.0.33",
+    "vue3-perfect-scrollbar": "^2.0.0",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
+  }
+}
