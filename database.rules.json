@@ -1,0 +1,6 @@
+{
+  "rules": {
+    ".read": true,  // Replace with your actual read rule
+      ".write": true,
+  }
+}

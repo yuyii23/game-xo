@@ -13,11 +13,6 @@ export const router = createRouter({
       component: () => import('@/views/Login.vue'),
     },
     {
-      name: 'FormsRegister',
-      path: '/regiter',
-      component: () => import('@/views/Register.vue'),
-    },
-    {
       name: 'PlayGame',
       path: '/play-game',
       component: () => import('@/views/PlayGame.vue'),

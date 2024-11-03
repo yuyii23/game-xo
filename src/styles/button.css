@@ -13,18 +13,17 @@
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
   background-image: linear-gradient(#212121, #212121),
-    linear-gradient(
-      137.48deg,
-      #ffdb3b 10%,
-      #fe53bb 45%,
-      #8f51ea 67%,
-      #0044ff 87%
-    );
+    linear-gradient(137.48deg,
+      var(--primary-color) var(--position-yellow),
+      var(--color-pink) var(--position-pink),
+      var(--color-purple) var(--position-purple),
+      var(--color-blue) var(--position-blue));
   background-origin: border-box;
   background-clip: content-box, border-box;
   position: relative;
   color: white;
 }
+
 .btn::after {
   content: "Login with Google";
   position: absolute;
@@ -33,20 +32,17 @@
   height: 100%;
   border-radius: 5rem;
   transition: 0.5s;
-  
+
   text-transform: uppercase;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
 }
-/* .btn:hover #container-stars {
-  z-index: 1;
-} */
 
 .btn:hover {
   transform: scale(1.1);
-  color: #ffdb3b;
+  color: var(--primary-color);
 }
 
 
@@ -65,7 +61,7 @@ strong {
   z-index: 2;
   font-size: 12px;
   letter-spacing: 5px;
-  color: #ffffff;
+  color: white;
   text-shadow: 0 0 4px white;
 }
 
@@ -92,14 +88,14 @@ strong {
 }
 
 .btn:active {
-  border: double 4px #fe53bb;
+  border: double 4px var(--color-pink);
   background-origin: border-box;
   background-clip: content-box, border-box;
   animation: none;
 }
 
 .btn:active .circle {
-  background: #fe53bb;
+  background: var(--color-pink);
 }
 
 #stars {
@@ -189,4 +185,45 @@ strong {
     transform: scale(0.75);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
+}
+
+.button {
+  width: fit-content;
+  display: flex;
+  padding: 0.6em 1.1rem;
+  gap: 0.4rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+  background: linear-gradient(15deg,
+      var(--color-purple),
+      var(--color-magenta),
+      var(--color-red),
+      var(--color-orange),
+      var(--color-yellow),
+      var(--color-orange),
+      var(--color-red),
+      var(--color-magenta),
+      var(--color-purple)) no-repeat;
+  background-size: 300%;
+  background-position: left center;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+.button:hover {
+  background-size: 320%;
+  background-position: right center;
+}
+
+.button:hover svg {
+  fill: white;
+}
+
+.button:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }

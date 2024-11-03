@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+:root {
+  --primary-color: #ffc300;
+  --secondary-color: #f5deb3;
+  --tertiary-color: #f5deb352;
+  --error-color: #950202;
+  --color-pink: #fe53bb;
+  --color-purple: #8f51ea;
+  --color-blue: #0044ff;
+  --color-purple: #880088;
+  --color-magenta: #aa2068;
+  --color-red: #cc3f47;
+  --color-orange: #de6f3d;
+  --color-yellow: #f09f33;
+
+  --position-yellow: 10%;
+  --position-pink: 45%;
+  --position-purple: 67%;
+  --position-blue: 87%;
+}
+
 html,
 body {
   margin: 0;
@@ -7,7 +28,7 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  background-color: #000;
+  background-color: black;
   color: white;
 }
 
@@ -16,8 +37,9 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-.content{
-  background-image: url('../assets/bg.jpg');
+
+.content {
+  background-image: url('../assets/bg.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -26,4 +48,47 @@ body {
   margin: 0 auto;
   padding: 1rem;
   height: 100vh;
+  position: relative;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Safari */
+  -moz-appearance: none;
+  /* Firefox */
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 150px;
+  padding: 0.4rem 1.6rem 0.4rem 0.4rem;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background:  var(--tertiary-color);
+  color: var(--primary-color);
+}
+
+.custom-select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--primary-color);
+  font-size: 0.8em;
+}
+
+.text-version{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 7px;
+  color: white;
 }

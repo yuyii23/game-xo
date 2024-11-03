@@ -11,7 +11,7 @@ import '@/styles/index.css';
 import '@/styles/button.css';
 import '@/styles/play-game.css';
 
-const CLIENT_ID = '218629800376-fldk824n62e4o6su2g71npeqrll6ut44.apps.googleusercontent.com';
+const CLIENT_ID = '218629800376-qf7ic2lijlkkj76802a797ctgrieimnh.apps.googleusercontent.com';
 
 const app = createApp(App);
 app.use(router);

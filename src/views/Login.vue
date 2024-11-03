@@ -3,8 +3,7 @@ import { databaseURL } from '@/firebase';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { GoogleLogin, decodeCredential } from 'vue3-google-login';
-import WaterAnimation from '@/components/WaterAnimation.vue';
-
+import Version from '@/components/Version.vue';
 interface CredentialResponse {
   credential: string;
   select_by: string;
@@ -19,7 +18,6 @@ interface DecodedCredential {
 
 const router = useRouter();
 
-// Callback function for Google login
 const callback = async (response: CredentialResponse) => {
   if (response.credential) {
     const decoded = decodeCredential(response.credential) as DecodedCredential;
@@ -28,20 +26,19 @@ const callback = async (response: CredentialResponse) => {
       displayName: decoded.name,
       email: decoded.email,
       photoURL: decoded.picture,
-      uid: decoded.sub
+      uid: decoded.sub,
     };
 
     try {
-      const response = await axios.post(`${databaseURL}/users.json`, userData);
-      localStorage.setItem('userId', response.data.name);
-      console.log("User data posted to Firebase:", response.data);
+      const res = await axios.post(`${databaseURL}/users.json`, userData);
+      localStorage.setItem('userId', res.data.name);
+      console.log('User data posted to Firebase:', res.data);
       router.push({ path: '/play-game' });
-
     } catch (error) {
-      console.error("Error posting user data to Firebase:", error);
+      console.error('Error posting user data to Firebase:', error);
     }
   } else {
-    console.error("No credential found in response");
+    console.error('No credential found in response');
   }
 };
 </script>
@@ -49,28 +46,28 @@ const callback = async (response: CredentialResponse) => {
 <template>
   <div class="content login">
     <div class="box-logo">
-    <img src="@/assets/logo.png" alt="logo" class="logo" />
-    <div class="btn">
-      <div id="container-stars">
-        <div id="stars"></div>
-      </div>
-      <GoogleLogin :callback="callback" class="google-login-button" />
-      <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <img src="@/assets/logo.webp" alt="logo" class="logo" />
+      <div class="btn">
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+        <GoogleLogin :callback="callback" class="google-login-button" />
+        <div id="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
     </div>
-    </div>
-    <!-- <WaterAnimation /> -->
+    <Version />
   </div>
 </template>
 
 <style scoped>
-.login{
+.login {
   position: relative;
 }
 
-.box-logo{
+.box-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,12 +81,13 @@ const callback = async (response: CredentialResponse) => {
   z-index: 10;
 }
 
-.logo{
+.logo {
   width: 100%;
   max-width: 250px;
   margin-bottom: 20px;
 }
-.google-login-button{
+
+.google-login-button {
   position: relative;
   cursor: pointer;
   z-index: 100;
